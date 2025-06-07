@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-76a4deb1260ba662da338fe1fe2e6532"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "Fatalities", "scale": {"scheme": "reds"}, "title": "Fatalities", "type": "quantitative"}, "tooltip": [{"field": "Activity", "title": "Activity", "type": "nominal"}, {"field": "Total_Attacks", "title": "Total Attacks", "type": "quantitative"}, {"field": "Fatalities", "title": "Fatalities", "type": "quantitative"}], "x": {"field": "Total_Attacks", "title": "Number of Attacks", "type": "quantitative"}, "y": {"field": "Activity", "sort": "-x", "title": "Activity", "type": "nominal"}}, "title": "Top 10 Activities in Shark Attacks", "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-76a4deb1260ba662da338fe1fe2e6532": [{"Activity": "surfing", "Total_Attacks": 1601, "Fatalities": 174}, {"Activity": "swimming", "Total_Attacks": 1300, "Fatalities": 461}, {"Activity": "fishing", "Total_Attacks": 1259, "Fatalities": 171}, {"Activity": "diving", "Total_Attacks": 694, "Fatalities": 152}, {"Activity": "sailing", "Total_Attacks": 287, "Fatalities": 74}, {"Activity": "walking", "Total_Attacks": 248, "Fatalities": 24}, {"Activity": "bathing", "Total_Attacks": 194, "Fatalities": 83}, {"Activity": "floating", "Total_Attacks": 107, "Fatalities": 32}, {"Activity": "boating", "Total_Attacks": 74, "Fatalities": 37}, {"Activity": "kite surfing", "Total_Attacks": 49, "Fatalities": 0}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
